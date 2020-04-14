@@ -19,6 +19,7 @@ public class Main {
 		conf.setProperty("hibernate.connection.username", "system");
 		conf.setProperty("hibernate.connection.password", password);
 		conf.setProperty("hibernate.connection.dialect", "org.hibernate.dialect.Oracle8iDialect");
+		conf.setProperty("hibernate.show_sql", "true");
 		
         conf.addAnnotatedClass(Persons.class);
         
