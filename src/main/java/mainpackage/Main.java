@@ -27,7 +27,10 @@ public class Main {
         
         Transaction t = session.beginTransaction();
         
-        
+        session.save(new Persons("Schessl","Timo","timo.schessl@gmx.de",22));
+        t.commit();
+        session.close();
+        sf.close();
         
 	}
 
