@@ -3,4 +3,21 @@
   <groupId>HibernateOracleTest</groupId>
   <artifactId>HibernateOracleTest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+ <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.4.14.Final</version>
+</dependency>
+ 
+  <dependency>
+       <groupId>com.oracle</groupId>
+       <artifactId>ojdbc8</artifactId>
+       <version>1.0</version>
+       <scope>system</scope>
+       <systemPath>C:/Users/timos/Desktop/Oracle/jdbc/ojdbc8-full/ojdbc8-full/ojdbc8-full/ojdbc8.jar</systemPath>
+  </dependency>
+  </dependencies>
+  
 </project>
