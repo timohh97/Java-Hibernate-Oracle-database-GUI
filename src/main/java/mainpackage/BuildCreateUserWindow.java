@@ -4,7 +4,7 @@ public class BuildCreateUserWindow {
 	
 	public static void buildCreateUserWindowGUI()
 	{
-		GUICreateUserWindow gui = new GUICreateUserWindow("Register");
+		GUICreateUser gui = new GUICreateUser("Register");
 	}
 	
 

@@ -5,6 +5,6 @@ public class BuildSeeTableWindow {
 	
 	public static void buildSeeTableWindowGUI()
 	{
-		GUISeeTableWindow gui = new GUISeeTableWindow("User table");
+		GUISeeTable gui = new GUISeeTable("User table");
 	}
 }

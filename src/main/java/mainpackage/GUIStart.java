@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class GUIStartWindow extends JFrame{
+public class GUIStart extends JFrame{
 
 	
 	    private JButton createUserButton;
@@ -23,7 +23,7 @@ public class GUIStartWindow extends JFrame{
 	    private JButton deleteUserButton;
 
 
-	    public GUIStartWindow(String titel) {
+	    public GUIStart(String titel) {
 
 	        setTitle(titel);
 	        setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -96,6 +96,17 @@ public class GUIStartWindow extends JFrame{
 	               
 	            	dispose();
 	            	BuildSeeTableWindow.buildSeeTableWindowGUI();
+	              
+	            }
+	        });
+           
+           
+           deleteUserButton.addActionListener(new ActionListener() {
+	        	
+	            public void actionPerformed(ActionEvent e) {
+	               
+	            	dispose();
+	            	BuildDeleteUserWindow.buildDeleteUserWindowGUI();
 	              
 	            }
 	        });

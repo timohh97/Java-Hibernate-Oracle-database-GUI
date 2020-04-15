@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class GUICreateUserWindow extends JFrame{
+public class GUICreateUser extends JFrame{
 	
 	private JLabel nameLabel;
     private JTextField nameText;
@@ -31,7 +31,7 @@ public class GUICreateUserWindow extends JFrame{
  
 
 
-    public GUICreateUserWindow(String titel) {
+    public GUICreateUser(String titel) {
 
         setTitle(titel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -116,9 +116,9 @@ public class GUICreateUserWindow extends JFrame{
             	
             	RowInserter.insertRow(name, first_name, email, age);
                 
-            	JOptionPane.showMessageDialog(GUICreateUserWindow.this, "Registration successful!");}
+            	JOptionPane.showMessageDialog(GUICreateUser.this, "Registration successful!");}
             	catch (Exception exc){
-            		JOptionPane.showMessageDialog(GUICreateUserWindow.this, "Registration not successful!");	
+            		JOptionPane.showMessageDialog(GUICreateUser.this, "Registration not successful!");	
             	}
             	
             }
@@ -128,7 +128,7 @@ public class GUICreateUserWindow extends JFrame{
 			
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				GUIStartWindow gui = new GUIStartWindow("User registration system");
+				GUIStart gui = new GUIStart("User registration system");
 				
 			}
 		});

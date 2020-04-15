@@ -10,8 +10,8 @@ public class RowDeleter {
 	
 	public static void deleteRow(int id) {
 		
-        
 		List<Object> transactionAndSessionList = Start.connectWithDatabase();
+      
 		
 		Session session = (Session) transactionAndSessionList.get(0);
 		Transaction t = (Transaction) transactionAndSessionList.get(1);

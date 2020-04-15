@@ -6,7 +6,9 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -16,14 +18,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class GUISeeTableWindow extends JFrame{
+public class GUISeeTable extends JFrame{
 
 	private JTable table;
 	private JButton goBackButton;
    
 
 
-    public GUISeeTableWindow(String titel) {
+    public GUISeeTable(String titel) {
 
         setTitle(titel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -77,22 +79,36 @@ public class GUISeeTableWindow extends JFrame{
     
     	
     	List<Person> personList = RowReader.readAllRows();
-    	List<Vector> 
+    	List<Vector> rowList = new ArrayList<Vector>();
     	
     	for(Person p : personList)
     	{
+    		Vector v = new Vector();
+    		v.add(p.getId());
+    		v.add(p.getName());
+    		v.add(p.getFirst_name());
+    		v.add(p.getEmail());
+    		v.add(p.getAge());
+    		
+    		rowList.add(v);
     		
     	}
     	
+    	String[] columnNames = {"Id","Name","First Name","Email","Age"};
     	
+        for(String s : columnNames)
+        {
+        	tableModel.addColumn(s);
+        }
     	
-    	tableModel.addColumn("Name");
-    	tableModel.addRow();
-    	
-    	
+    	for(Vector v : rowList)
+    	{
+    	    tableModel.addRow(v);
+    	}
     	
     	
         table = new JTable(tableModel);
+        table.setEnabled(false);
         goBackButton = new JButton("Go back");
         
 
@@ -101,7 +117,7 @@ public class GUISeeTableWindow extends JFrame{
             public void actionPerformed(ActionEvent e) {
                
             	dispose();
-            	GUIStartWindow gui = new GUIStartWindow("User registration system");
+            	GUIStart gui = new GUIStart("User registration system");
               
             }
         });

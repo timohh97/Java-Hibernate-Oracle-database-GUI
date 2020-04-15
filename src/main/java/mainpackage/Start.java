@@ -3,6 +3,7 @@ package mainpackage;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import org.hibernate.Session;
@@ -16,12 +17,15 @@ public class Start {
 	
 	public static void main(String[] args)
 	{
-		GUIStartWindow gui = new GUIStartWindow("User registration system");
+		GUIStart gui = new GUIStart("User registration system");
 	}
 	
 	
 	static List<Object> connectWithDatabase()
 	{
+		
+	
+	
 		List<Object> transactionAndSessionList= new ArrayList<Object>();
 		
 		
@@ -29,10 +33,16 @@ public class Start {
 		
 		String password = JOptionPane.showInputDialog("Please enter the password:");
 		
+		
 		conf.setProperty("hibernate.connection.driver_class", "oracle.jdbc.OracleDriver");
 		conf.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1521:xe");
 		conf.setProperty("hibernate.connection.username", "system");
+		
+		
 		conf.setProperty("hibernate.connection.password", password);
+		
+		
+		
 		conf.setProperty("hibernate.connection.dialect", "org.hibernate.dialect.Oracle8iDialect");
 		conf.setProperty("hibernate.show_sql", "true");
 		
@@ -47,9 +57,10 @@ public class Start {
         transactionAndSessionList.add(t);
         
         
+        
         return transactionAndSessionList;
         
-        
+	
 	}
 
 }
