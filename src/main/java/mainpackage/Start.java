@@ -1,5 +1,8 @@
 package mainpackage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import org.hibernate.Session;
@@ -7,10 +10,22 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class Main {
 
-	public static void main(String[] args) {
-		Configuration conf = new Configuration();
+
+public class Start {
+	
+	public static void main(String[] args)
+	{
+		GUIStartWindow gui = new GUIStartWindow("User registration system");
+	}
+	
+	
+	static List<Object> connectWithDatabase()
+	{
+		List<Object> transactionAndSessionList= new ArrayList<Object>();
+		
+		
+        Configuration conf = new Configuration();
 		
 		String password = JOptionPane.showInputDialog("Please enter the password:");
 		
@@ -21,17 +36,19 @@ public class Main {
 		conf.setProperty("hibernate.connection.dialect", "org.hibernate.dialect.Oracle8iDialect");
 		conf.setProperty("hibernate.show_sql", "true");
 		
-        conf.addAnnotatedClass(Persons.class);
+        conf.addAnnotatedClass(Person.class);
         
         SessionFactory sf = conf.buildSessionFactory();
         Session session = sf.openSession();
         
         Transaction t = session.beginTransaction();
         
-        session.save(new Persons("Schessl","Timo","timo.schessl@gmx.de",22));
-        t.commit();
-        session.close();
-        sf.close();
+        transactionAndSessionList.add(session);
+        transactionAndSessionList.add(t);
+        
+        
+        return transactionAndSessionList;
+        
         
 	}
 

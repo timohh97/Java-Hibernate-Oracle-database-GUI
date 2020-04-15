@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Persons {
+public class Person {
 	private int id;
 	private String name;
 	private String first_name;
@@ -14,12 +14,12 @@ public class Persons {
 	private int age;
 	
 	
-	public Persons() {
+	public Person() {
 		
 	}
 
 
-	public Persons(String name, String first_name, String email, int age) {
+	public Person(String name, String first_name, String email, int age) {
 		this.name = name;
 		this.first_name = first_name;
 		this.email = email;
